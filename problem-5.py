@@ -2,11 +2,11 @@
 # What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
 def lcm(low,high):
-    found=False
     a=1
     list=range(low,high)
-    while not found:
-        divisible_by_all(a,list)
+    while True:
+        if divisible_by_all(a,list):
+            return(a)
         a=a+1   
 
 def divisible_by(a,b):
@@ -15,16 +15,10 @@ def divisible_by(a,b):
     else:
         return False
 
-def divisible_by_any(a,list):
-    for b in list:
-        if divisible_by(a,b):
-            return True
-    return False
-
 def divisible_by_all(a,list):
     for b in list:
         if not divisible_by(a,b):
             return False
     return True
 
-print(range(5,15))
+print(lcm(1,21))
