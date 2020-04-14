@@ -1,10 +1,4 @@
-def sum_of_range(low,high):
-    b=low
-    sum=b
-    while b<high:
-        b=b+1
-        sum=sum+b
-    print(sum)
-        
+def sum_of_range(n):
+    return n*(n+1)/2
 
-sum_of_range(1,10)
+print(sum_of_range(13))
