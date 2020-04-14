@@ -20,7 +20,6 @@ def get_prime_factors(a):
     prime_factors = {}
     b = 2
     while a > 1:
-        print("checking: ", b)
         if is_prime(b) and divisible_by(a,b):
             # we found a prime factor of a!!
             prime_factors[b] = 1
@@ -30,11 +29,10 @@ def get_prime_factors(a):
                 prime_factors[b] = prime_factors[b] + 1
                 a = a/b
 
-            print(b, "divides the original 'a'", prime_factors[b], "times")
-
         b = b + 1
 
     prime_factors = {int(k) : v for k, v in prime_factors.items()}
     return prime_factors
 
-print(get_prime_factors(999992))
+print("104729 = ", get_prime_factors(104729))
+print("104743 = ", get_prime_factors(104743))
