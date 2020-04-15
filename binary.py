@@ -13,10 +13,12 @@ def binary_to_decimal(binary):
 
 def decimal_to_binary(decimal):
     binary=0    
+    multiplier=1
     while decimal > 0:
         remainder=decimal%2
         decimal=decimal/2
-        binary=binary*10+remainder
+        binary=remainder*multiplier+binary
+        multiplier=multiplier*10
     return binary
 
-print(decimal_to_binary(69))
+print(decimal_to_binary(1977))
