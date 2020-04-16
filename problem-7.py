@@ -14,30 +14,36 @@ def divisible_by(a,b):
         return False
 
 def is_prime(a):
-    for x in range(2,a/2+1):
-        if divisible_by(a,x):
-            return False
-    return True
+    return not divisible_by_any(a,range(2,a/2+1))
 
 def is_coprime(a,divisors):
     return not divisible_by_any(a,divisors)
 
-def prime_number(a):
+def prime_number(prime_number_count):
     start = datetime.datetime.now()
-
     candidate=1
     primes=[]
-    while len(primes) < a:
+    while len(primes) < prime_number_count:
         candidate=candidate+1
-        # if is_prime(candidate):
         if is_coprime(candidate, primes):
             primes.append(candidate)
-    
-    diff = datetime.datetime.now() - start
+    coprime_time = datetime.datetime.now() - start
 
-    print("time:",  diff.seconds)
-    return candidate
+    start = datetime.datetime.now()
+    candidate=1
+    primes=[]
+    while len(primes) < prime_number_count:
+        candidate=candidate+1
+        if is_prime(candidate):
+            primes.append(candidate)
+    prime_time = datetime.datetime.now() - start
+
+    return (candidate, coprime_time.microseconds, prime_time.microseconds)
         
+def first_prime_numbers(n):
+    data=[]
+    for i in range(1,n+1):
+        data.append(prime_number(i))
+    return data
 
-print(prime_number(10001))
-# print(is_prime(4))
+print(first_prime_numbers(1000))
