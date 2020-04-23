@@ -46,4 +46,4 @@ def first_prime_numbers(n):
         data.append(prime_number(i))
     return data
 
-print(first_prime_numbers(1000))
+# print(first_prime_numbers(1000))
